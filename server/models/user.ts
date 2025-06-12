@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  usename: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  cities: { type: [String], default: [] } 
 });
 
 export default mongoose.model('users', userSchema);

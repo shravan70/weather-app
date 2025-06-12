@@ -28,7 +28,10 @@ const LoginPage: React.FC = () => {
       const data = await res.json();
       console.log('User data:', data);
 
-      // ✅ Redirect to dashboard
+      // Save username to localStorage
+      localStorage.setItem('username', username);
+
+      // Redirect to dashboard
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Something went wrong');
