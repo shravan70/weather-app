@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button'; 
+import { Container, Typography } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const navigate = useNavigate(); // For redirecting
+  const navigate = useNavigate(); 
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,29 +42,45 @@ const LoginPage: React.FC = () => {
   };
 
   return (
+    <Container maxWidth="xs" style={{ marginTop: '50px', 
+      marginLeft: '550px', backgroundColor: '#f5f5f5', 
+      padding: '20px', borderRadius: '8px' }}>
     <form onSubmit={handleLogin}>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div>
-        <label>Username:</label>
-        <input
-          type="text"
+      <Typography variant="h4" align="center" style={{ color: '#242424', fontWeight:'bold' }}>
+        Login
+      </Typography>
+
+     
+      <div   style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',       
+    gap: '16px',                
+    marginTop: '50px',
+  }}>
+
+     {error && <p style={{ color: 'red' }}>{error}</p>}
+        <TextField
+          required
+          id="outlined-required"
+         
+          placeholder='Username' type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required
         />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
+    
+        <TextField
+        placeholder='Password'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+      
+      <Button type="submit" variant="contained" >Login</Button>
       </div>
-      <button type="submit">Login</button>
     </form>
+    </Container>
   );
 };
 
