@@ -82,6 +82,6 @@ npm install
 #restore Database
 mongorestore --db weather ./dump/weather
 
-#start server
+#start server.
 npm start
 ```
