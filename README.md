@@ -7,7 +7,7 @@
 3. React Router
 4. MUI
 
-## To install in Mac - Platform
+## To install in Mac - Platform.
 
 ```bash
 
