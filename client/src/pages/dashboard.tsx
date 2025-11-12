@@ -76,6 +76,7 @@ const HomePage: React.FC = () => {
       setError('You can only have up to 5 favorite cities');
       return;
     }
+    // Validate city via weather API
 
     try {
       const res = await fetch('http://localhost:5000/api/cities/add', {
